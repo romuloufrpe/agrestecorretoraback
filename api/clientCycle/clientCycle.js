@@ -2,24 +2,28 @@ const restful = require('node-restful')
 const mongoose = restful.mongoose
 
 const clientSchema = new mongoose.Schema({
-  name: { type: String, required: true},
-  cpf: { type: Number, required: true}
+  name: { type: String},
+  cpf: { type: Number}
 })
 
 const outSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  cpf: {type: Number, required: true},
-  status: {type: String, required: false, uppcase: true,
+  name: {type: String},
+  cpf: {type: Number},
+  status: {type: String, uppcase: true,
   enum: ['INTERESSADO']}
 })
 const clientCycleSchema = new mongoose.Schema({
-  name:  {type: String, required: true},
-  cpf: { type: Number, required: true},
-  rg: {type: Number, required: false},
-  city: { type: String, required: false},
-  state: {type: String, required: false},
-  cep: {type: String, required: false},
-  celphone: {type: Number, required: false}
+  name:  {type: String},
+  cpf: { type: Number},
+  rg: {type: Number},
+  city: { type: String},
+  state: {type: String},
+  cep: {type: String},
+  celphone: {type: Number},
+  status: {type: String, uppcase: true,
+  enum: ['INTERESSADO']},
+  clients:[clientSchema],
+  outs:[outSchema]
 
 })
 

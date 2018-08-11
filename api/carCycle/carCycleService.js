@@ -6,9 +6,8 @@ CarCycle.updateOptions({new: true, runValidators: true})
 
 CarCycle.after('post', sendErrorsOrNext).after('put', sendErrorsOrNext)
 
-function sendErrorsOrNext(req, res, next) {
+function sendErrorsOrNext(err, req, res, next) {
   const bundle = res.locals.bundle
-
   if(bundle.errors) {
     var errors = parseErrors(bundle.errors)
     res.status(500).json({errors})

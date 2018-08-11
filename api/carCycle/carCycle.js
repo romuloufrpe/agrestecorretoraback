@@ -2,36 +2,36 @@ const restful = require('node-restful')
 const mongoose = restful.mongoose
 
 const carSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  model:{type: String, required: true},
-  value: {type:Number, requeride: true}
+  name: {type: String},
+  model:{type: String},
+  value: {type:Number}
 })
 
 const outSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  model: {type: String, required: true},
-  value: {type: Number, min: 0, required: [true, 'Informe o valor']},
-  status: {type: String, required: false, uppcase: true,
-  enum: ['VENDIDO', 'DISPONIVEL', 'OFICINA']}
+  name: {type: String},
+  model: {type: String},
+  value: {type: Number}
 })
 
 const carCycleSchema = new mongoose.Schema({
   //name
-  brand: { type: String, required: true},
+  brand: { type: String},
   //modelo
-  model: {type: String, required: true},
+  model: {type: String},
   //ano
-  year: {type: Number, min: 1970, max: 2100, required: true},
+  year: {type: Number, min: 1970, max: 2100},
   //cor
-  color: {type: String, required: false},
+  color: {type: String},
   //placa
-  board: {type: String, required: true},
+  board: {type: String},
   //Renavan
-  renavan: {type: Number, min: 0, required: true},
+  renavan: {type: Number, min: 0},
   //valor
-  value: {type: Number, min: 0, required: true},
+  value: {type: Number, min: 0},
   //valor de venda
-  valuev: {type: Number, min: 0, required: true},
+  valuev: {type: Number, min: 0},
+  status: {type: String, uppcase: true,
+  enum: ['VENDIDO', 'DISPONIVEL', 'OFICINA']},
   cars: [carSchema],
   outs: [outSchema]
 })

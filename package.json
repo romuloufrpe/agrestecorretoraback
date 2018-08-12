@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "loader.js",
+  "main": "src/loader.js",
   "scripts": {
+    "start": "src/loader.js",
     "dev": "nodemon",
-    "production": "pm2 start loader.js --name backend"
+    "production": "pm2 start src/loader.js --name backend"
   },
   "author": "Romulo Ferreira",
   "license": "ISC",
@@ -23,5 +24,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": ">=6.11.1"
   }
 }

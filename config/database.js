@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-const url = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : 'mongodb://localhost/agrestecorretora'
-module.exports = mongoose.connect(url, { useMongoClient: true })
+const url = process.env.PROD_MONGODB || 'mongodb://localhost/agrestecorretora'
+
+module.exports = mongoose.connect(url, {useMongoClient: true})
 
 
 mongoose.Error.messages.general.required = "O atributo '{PATH}' é obrigatório."

@@ -4,7 +4,7 @@
   "description": "",
   "main": "loader.js",
   "scripts": {
-    "start": "loader.js",
+    "start": "npm run loader.js",
     "dev": "nodemon",
     "production": "pm2 start loader.js --name backend"
   },

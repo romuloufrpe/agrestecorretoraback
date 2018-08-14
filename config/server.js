@@ -13,7 +13,7 @@ server.use(allowCors)
 server.use(queryParser())
 
 server.listen(port, function () {
-  console.log(`Server SGC on in localhost:${port}.`)
+  console.log(`Server AGRESTE on in localhost:${port}.`)
 })
 
 module.exports = server

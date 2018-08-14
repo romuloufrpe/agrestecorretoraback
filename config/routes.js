@@ -23,7 +23,8 @@ module.exports = function (server) {
      * Rotas abertas
      */
     const openApi = express.Router()
-    server.use('/oapi', openApi)
+    server.use('/api', openApi)
+		router.get('/', (req, res) => res.json({ message: 'Acesso Restrito!' }));
 
     const AuthService = require('../api/user/authService')
     openApi.post('/login', AuthService.login)

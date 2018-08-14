@@ -3,13 +3,13 @@ const auth = require('./auth')
 
 module.exports = function (server) {
 
-	/*
-	 * Rotas protegidas por Token JWT
-	 */
-	const protectedApi = express.Router()
-	server.use('/api', protectedApi)
+    /*
+     * Rotas protegidas por Token JWT
+     */
+    const protectedApi = express.Router()
+    server.use('/api', protectedApi)
 
-  protectedApi.use(auth)
+		protectedApi.use(auth)
 
   //routas api
   const carCycleService = require('../api/carCycle/carCycleService')
@@ -19,14 +19,14 @@ module.exports = function (server) {
   const clientCycleService = require('../api/clientCycle/clientCycleService')
   clientCycleService.register(protectedApi, '/clientCycles')
 
-  /*
-	 * Rotas abertas
-	 */
-	const openApi = express.Router()
-	server.use('/oapi', openApi)
+	/*
+     * Rotas abertas
+     */
+    const openApi = express.Router()
+    server.use('/oapi', openApi)
 
-	const AuthService = require('../api/user/authService')
-	openApi.post('/login', AuthService.login)
-	openApi.post('/signup', AuthService.signup)
-  openApi.post('/validateToken', AuthService.validateToken)
+    const AuthService = require('../api/user/authService')
+    openApi.post('/login', AuthService.login)
+    openApi.post('/signup', AuthService.signup)
+		openApi.post('/validateToken', AuthService.validateToken)
 }
